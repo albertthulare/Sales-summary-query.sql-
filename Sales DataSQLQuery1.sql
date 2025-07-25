@@ -1,5 +1,5 @@
 --Sales Data SQL Queries
---Sales Dataset from Kaggle
+
 
 --Looking at Sales changing year over year
 select 
