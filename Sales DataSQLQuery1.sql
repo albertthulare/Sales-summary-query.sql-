@@ -1,4 +1,7 @@
---Sales changing year over year
+--Sales Data SQL Queries
+--Sales Dataset from Kaggle
+
+--Looking at Sales changing year over year
 select 
       FORMAT(sale_date,'yyy-mm') as year,
 	  sum(sales_amount) as total_sales
@@ -7,7 +10,7 @@ group by FORMAT(sale_date,'yyy-mm')
 order by year;
 
 
---Top sales Representives
+--Looking at Top sales Representives
 select   
 sales_rep,
 	  sum(sales_amount) as total_sales,
@@ -17,7 +20,7 @@ group by sales_rep
 order by total_sales desc;
 
 
---Regions that generate the most Revenue
+--Looking at Regions that generate the most Revenue
 select 
       region,
 	  sum(sales_amount) as total_sales
@@ -26,7 +29,7 @@ group by Region
 order by total_sales desc;
 
 
---Product categories total sales and total quantities 
+--Looking at Product categories total sales and total quantities 
 select 
       product_category,
 	  sum(sales_amount) as total_sales,
@@ -35,7 +38,7 @@ from dbo.sales_data
 group by Product_Category
 order by total_sales desc;
 
---Total profit for each product category 
+--Looking at Total profit for each product category 
 select 
       product_category,
 	  sum(sales_amount) as total_sales,
@@ -46,7 +49,7 @@ group by Product_Category
 order by total_sales desc;
 
 
---New Customers vs Returning customers spending difference 
+--Looking at New Customers vs Returning customers spending difference 
 select
       customer_type,
 	  count(*) as number_of_orders,
@@ -55,7 +58,7 @@ select
 from dbo.sales_data
 group by Customer_Type;
 
---Most used Payment methods
+--Looking at Most used Payment methods
 select
       payment_method,
 	  count(*) as usage_count
@@ -63,7 +66,7 @@ from sales_data
 group by Payment_Method
 order by usage_count desc;
 
---Discount impact on Sales
+--Looking at Discount impact on Sales
 select
       discount,
 	  avg(sales_amount) as Avg_sales
